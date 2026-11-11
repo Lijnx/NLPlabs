@@ -5,8 +5,10 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "accelerate>=1.15.0",
     "datasets>=5.1.0",
     "en-core-web-sm",
+    "evaluate>=0.4.6",
     "ipykernel>=7.3.0",
     "ipywidgets>=8.1.9",
     "kagglehub>=1.0.2",
@@ -18,9 +20,24 @@ dependencies = [
     "pymystem3>=0.2.0",
     "ru-core-news-sm",
     "scikit-learn>=1.7.2",
+    "seqeval>=1.2.2",
     "spacy>=3.8,<3.9",
+    "torch>=2.14.1",
+    "torchvision>=0.29.2",
+    "transformers>=5.20.2",
 ]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
 
 [tool.uv.sources]
 ru-core-news-sm = { url = "https://github.com/explosion/spacy-models/releases/download/ru_core_news_sm-3.8.0/ru_core_news_sm-3.8.0-py3-none-any.whl" }
 en-core-web-sm = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl" }
+torch = [
+  { index = "pytorch-cpu" },
+]
+torchvision = [
+  { index = "pytorch-cpu" },
+]
